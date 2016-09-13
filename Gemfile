@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 gem 'rails', '5.0.0.1'
 gem 'bcrypt', '3.1.11'
 gem 'puma'
+gem 'bootstrap-sass', '~>3.3.6'
 # Use SCSS for stylesheets
 gem 'sass-rails', '5.0.6'
 # Use Uglifier as compressor for JavaScript assets
