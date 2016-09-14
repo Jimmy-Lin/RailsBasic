@@ -4,10 +4,15 @@ one:
   id: 1
   name: MyString
   email: MyString
-  password_digest: password
+  password_digest: <%= User.digest('password') %>
 
 two:
   id: 2
   name: YourString
   email: YourString
-  password_digest: password
+  password_digest: <%= User.digest('password') %>
+
+mike:
+  name: Mike Hunt
+  email: mike@hunt.com
+  password_digest: <%= User.digest('password') %>
