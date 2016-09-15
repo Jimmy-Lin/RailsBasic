@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'password_resets/new'
+
+  get 'password_resets/edit'
+
   root 'static_pages#home'
   get '/help', to: 'static_pages#help'
   get '/about', to: 'static_pages#about'
@@ -12,6 +16,7 @@ Rails.application.routes.draw do
   resources :microposts
   resources :users  # The priority is based upon order of creation: first created -> highest priority.
   resources :account_activations, only: [:edit]
+  resources :password_resets, only: [:new, :create, :edit, :update]
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
