@@ -14,6 +14,7 @@ class UsersController < ApplicationController
   def show
     # optional due to callback to set_user
     @user = User.find(params[:id])
+    @microposts = @user.microposts.paginate(page: params[:page])
   end
 
   # GET /users/new
@@ -84,13 +85,7 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
     end
 
-    def must_be_logged_in
-      if !is_logged_in?
-        store_location
-        flash[:danger] = "Please log in."
-        redirect_to login_url
-      end
-    end
+
 
     def must_be_privileged
       @user = User.find(params[:id])
