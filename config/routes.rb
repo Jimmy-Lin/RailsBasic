@@ -12,11 +12,21 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
+  # routes for users/<user_id>/following and users<user_id>/followers
+  # maps to actions 'following' and 'followers'
+  # aliased as following_user_path(user_id) and followers_user_path(user_id)
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+
 
   resources :microposts, only: [:create, :destroy]
   resources :users  # The priority is based upon order of creation: first created -> highest priority.
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
+  resources :relationships, only: [:create, :destroy]
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"

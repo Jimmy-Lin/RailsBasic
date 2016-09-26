@@ -1,8 +1,7 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
-  setup do
-    # @user = User.new(id: 1, name: "Matthew McConaughey", email: "Matthew@McConaughey.com", password: "AlrightAlrightAlright", password_confirmation: "AlrightAlrightAlright")
+  def setup
     @user = users(:mike)
     @other_user = users(:steven)
     @kanye = users(:kanye)
@@ -70,7 +69,6 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_url
   end
 
-
   test "should destroy user when privileged" do
     log_in_as(@kanye, password: 'iamyeezus')
     assert_difference('User.count', -1) do
@@ -78,7 +76,6 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     end
     assert_redirected_to users_url
   end
-
 
   test "should destroy user if it is a self access" do
     log_in_as(@user)
@@ -88,5 +85,14 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to users_url
   end
 
+  test "should redirect following when not logged in" do
+    get following_user_path(@user)
+    assert_redirected_to login_url
+  end
+
+  test "should redirect followers when not logged in" do
+    get followers_user_path(@user)
+    assert_redirected_to login_url
+  end
 
 end
