@@ -1,0 +1,39 @@
+class PrivateDefaultAndNotNulls < ActiveRecord::Migration[5.0]
+  def change
+  	change_column_default :events, :is_public, false
+  	change_column_default :announcements, :is_public, false
+  	change_column_default :memberships, :is_requested, false
+  	change_column_default :memberships, :is_invited, false
+  	change_column_null :memberships, :user_id, false
+  	change_column_null :memberships, :group_id, false
+  	change_column_null :users, :name, false
+  	change_column_null :users, :email, false
+  	change_column_null :messages, :content, false
+  	change_column_null :messages, :user_id, false
+  	change_column_null :messages, :conversation_id, false
+  	change_column_null :links, :title, false
+  	change_column_null :links, :user_id, false
+  	change_column_null :links, :folder_id, false
+  	change_column_null :groups, :title, false
+  	change_column_null :groups, :description, false
+  	change_column_null :groups, :user_id, false
+  	change_column_null :folders, :title, false
+  	change_column_null :folders, :group_id, false
+  	change_column_null :folders, :user_id, false
+  	change_column_null :events, :title, false
+  	change_column_null :events, :description, false
+  	change_column_null :events, :time, false
+  	change_column_null :events, :group_id, false
+  	change_column_null :events, :user_id, false
+  	change_column_null :documents, :title, false
+  	change_column_null :documents, :user_id, false
+  	change_column_null :documents, :folder_id, false
+  	change_column_null :attendances, :status, false
+  	change_column_null :attendances, :user_id, false
+  	change_column_null :attendances, :event_id, false
+  	change_column_null :announcements, :title, false
+  	change_column_null :announcements, :description, false
+  	change_column_null :announcements, :group_id, false
+  	change_column_null :announcements, :user_id, false
+  end
+end

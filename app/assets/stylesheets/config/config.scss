@@ -1,0 +1,43 @@
+
+$primary-0: rgba( 64,  0,  5,0.75);
+$primary-1: rgba( 94,  4, 11,0.75);
+$primary-2: rgba(166, 55, 63,0.75);
+$primary-3: rgba(238,147,154,0.75);
+$primary-4: rgba(250,182,187,0.75);
+
+$grayscale-15: rbga(255,255,255,0.75);
+$grayscale-14: rbga(238,238,238,0.75);
+$grayscale-13: rbga(221,221,221,0.75);
+$grayscale-12: rbga(204,204,204,0.75);
+$grayscale-11: rbga(187,187,187,0.75);
+$grayscale-10: rbga(170,170,170,0.75);
+$grayscale-9: rbga(153,153,153,0.75);
+$grayscale-8: rbga(136,136,136,0.75);
+$grayscale-7: rbga(119,119,119,0.75);
+$grayscale-6: rbga(102,102,102,0.75);
+$grayscale-5: rbga(85,85,85,0.75);
+$grayscale-4: rbga(68,68,68,0.75);
+$grayscale-3: rbga(51,51,51,0.75);
+$grayscale-2: rbga(22,22,22,0.75);
+$grayscale-1: rbga(17,17,17,0.75);
+$grayscale-0: rbga(0,0,0,0.75);
+
+$error: rgba(255,68,68,0.75);
+$warning: rgba(255,187,51,0.75);
+$sucess: rgba(0,200,81,0.75);
+$info: rgba(51,181,229,0.75);
+
+$fontsize-1: 7em;
+$fontsize-2: 5em;
+$fontsize-3: 4em;
+$fontsize-4: 3em;
+$fontsize-5: 1.1em;
+$fontsize-6: 0.5em;
+
+$font-1: 'Montserrat', sans-serif;
+$font-2: 'Scheherazade', serif;
+$font-3: 'Cutive Mono', ;
+
+$transition-style: 1s cubic-bezier(0.4,0,0.2,1);
+
+html,body{height:100%;}

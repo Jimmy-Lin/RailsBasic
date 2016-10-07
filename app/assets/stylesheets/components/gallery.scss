@@ -1,0 +1,22 @@
+@mixin gallery($size, $padding){
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+  align-content: space-around;
+  padding: $padding*1px;
+  .gallery-item{
+    background:rgba(204,204,204,0.5);
+    box-sizing: border-box;
+    flex: 1 1 1;
+    width: $size*1px;
+    height: $size*1px;
+    margin: $padding*1px;
+  }
+}
+.gallery{
+  @include gallery(100, 5);
+}

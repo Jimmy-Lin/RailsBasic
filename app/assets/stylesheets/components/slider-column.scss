@@ -1,0 +1,64 @@
+.slider-container{
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+  align-content: space-around;
+  .slider-column{
+    @include transition(width, 0);
+    position: relative;
+    height: 100%;
+    box-sizing: border-box;
+    flex: 1 1 1;
+    .slider-label{
+      position: absolute;
+      top: 10%;
+      left: -10px;
+      height:auto;
+      width: auto;
+      @include rotate(270);
+    }
+    .slider-body{
+      @include transition(opacity,0);
+      position: absolute;
+      top: 0%;
+      left: 25px;
+      height: 100%;
+      width: 100%;
+      visibility: hidden;
+      opacity: 0;
+    }
+    .slider-active{
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+  .slider-column:hover>.slider-body,{
+    visibility: visible;
+    opacity: 1;
+   }
+  .from-0,.to-0:hover,.slider-label{width:0%;}
+  .from-1,.to-1:hover{width:100%;}
+  .from-2,.to-2:hover{width:200%;}
+  .from-3,.to-3:hover{width:300%;}
+  .from-4,.to-4:hover{width:400%;}
+  .from-5,.to-5:hover{width:500%;}
+  .from-6,.to-6:hover{width:600%;}
+  .from-7,.to-7:hover{width:700%;}
+  .from-8,.to-8:hover{width:800%;}
+  .from-9,.to-9:hover{width:900%;}
+  .from-10,.to-10:hover{width:1000%;}
+  .from-11,.to-11:hover{width:1100%;}
+  .from-12,.to-12:hover{width:1200%;}
+  .from-13,.to-13:hover{width:1300%;}
+  .from-14,.to-14:hover{width:1400%;}
+  .from-15,.to-15:hover{width:1500%;}
+  .from-16,.to-16:hover{width:1600%;}
+  .from-17,.to-17:hover{width:1700%;}
+  .from-18,.to-18:hover{width:1800%;}
+  .from-19,.to-19:hover{width:1900%;}
+  .from-20,.to-20:hover,.slider-body{width:2000%;}
+}

@@ -1,0 +1,34 @@
+.field{
+  @include transition(width,0);
+  box-sizing: border-box;
+  padding: 5px;
+  width: 150px;
+  background: none;
+  &:enabled{
+    border: none;
+    border-bottom: 2px solid rgba(153,153,153,0.5);
+  }
+  &:focus{
+    outline: none;
+    border: none;
+    border-bottom: 2px solid rgba(153,153,153,0.5);
+    width: 100%;
+  }
+  &:checked{
+    border: none;
+    border-bottom: 2px solid rgba(204,255,204,0.5);
+  }
+  &:required{
+    border: none;
+    border-bottom: 2px solid rgba(204,255,255,0.5);
+  }
+  &:invalid{
+    border: none;
+    border-bottom: 2px solid rgba(255,153,153,0.5);
+  }
+  &:disabled{
+    border: none;
+    border-bottom: 2px solid rgba(153,153,153,0.5);
+    background: rgba(204,204,204,0.5);
+  }
+}

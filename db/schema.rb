@@ -10,7 +10,116 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160924233907) do
+ActiveRecord::Schema.define(version: 20161007060905) do
+
+  create_table "announcements", force: :cascade do |t|
+    t.string   "title",                       null: false
+    t.text     "description",                 null: false
+    t.string   "picture"
+    t.boolean  "is_public",   default: false
+    t.integer  "group_id",                    null: false
+    t.integer  "user_id",                     null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.index ["group_id"], name: "index_announcements_on_group_id"
+    t.index ["user_id"], name: "index_announcements_on_user_id"
+  end
+
+  create_table "attendances", force: :cascade do |t|
+    t.integer  "status",     null: false
+    t.integer  "user_id",    null: false
+    t.integer  "event_id",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_attendances_on_event_id"
+    t.index ["user_id", "event_id"], name: "index_attendances_on_user_id_and_event_id", unique: true
+    t.index ["user_id"], name: "index_attendances_on_user_id"
+  end
+
+  create_table "conversations", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "documents", force: :cascade do |t|
+    t.string   "title",      null: false
+    t.string   "source"
+    t.integer  "user_id",    null: false
+    t.integer  "folder_id",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["folder_id"], name: "index_documents_on_folder_id"
+    t.index ["user_id"], name: "index_documents_on_user_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string   "title",                       null: false
+    t.text     "description",                 null: false
+    t.string   "picture"
+    t.datetime "time",                        null: false
+    t.string   "location"
+    t.boolean  "is_public",   default: false
+    t.integer  "group_id",                    null: false
+    t.integer  "user_id",                     null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.index ["group_id"], name: "index_events_on_group_id"
+    t.index ["user_id"], name: "index_events_on_user_id"
+  end
+
+  create_table "folders", force: :cascade do |t|
+    t.string   "title",      null: false
+    t.integer  "user_id",    null: false
+    t.integer  "group_id",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_folders_on_group_id"
+    t.index ["user_id"], name: "index_folders_on_user_id"
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.string   "title",       null: false
+    t.text     "description", null: false
+    t.integer  "user_id",     null: false
+    t.string   "picture"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["user_id"], name: "index_groups_on_user_id"
+  end
+
+  create_table "links", force: :cascade do |t|
+    t.string   "title",      null: false
+    t.string   "source"
+    t.integer  "user_id",    null: false
+    t.integer  "folder_id",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["folder_id"], name: "index_links_on_folder_id"
+    t.index ["user_id"], name: "index_links_on_user_id"
+  end
+
+  create_table "memberships", force: :cascade do |t|
+    t.integer  "user_id",                      null: false
+    t.integer  "group_id",                     null: false
+    t.boolean  "is_requested", default: false
+    t.boolean  "is_invited",   default: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.index ["group_id"], name: "index_memberships_on_group_id"
+    t.index ["user_id", "group_id"], name: "index_memberships_on_user_id_and_group_id", unique: true
+    t.index ["user_id"], name: "index_memberships_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text     "content",         null: false
+    t.string   "picture"
+    t.integer  "user_id",         null: false
+    t.integer  "conversation_id", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
 
   create_table "microposts", force: :cascade do |t|
     t.text     "content"
@@ -33,8 +142,8 @@ ActiveRecord::Schema.define(version: 20160924233907) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "name"
-    t.string   "email"
+    t.string   "name",                              null: false
+    t.string   "email",                             null: false
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
     t.string   "password_digest"

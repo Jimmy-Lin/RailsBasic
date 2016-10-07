@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  group: one
+  is_requested: false
+  is_invited: false
+
+two:
+  user: two
+  group: two
+  is_requested: false
+  is_invited: false

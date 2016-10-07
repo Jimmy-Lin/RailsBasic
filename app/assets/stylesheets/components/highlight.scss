@@ -1,0 +1,38 @@
+@mixin highlight($highlight-color, $highlight-hidden){
+  $highlight-border: 4px;
+  .highlight-horizontal,.highlight-vertical{
+    @include transition(border, 0);
+    box-sizing: border-box;
+    display: inline-block;
+    padding: $highlight-border;
+    border: $highlight-border solid $highlight-hidden;
+    
+    .highlight-content{
+      @include transition(background-color, 0);
+      box-sizing: border-box;
+      padding: 5px;
+    }
+    &:hover>.highlight-content{
+      background-color: $highlight-color;
+    }
+  }
+  .highlight-horizontal{
+    padding: $highlight-border 0px $highlight-border 0px;
+    &:hover{
+      border-top: $highlight-border solid $highlight-color;
+      border-bottom: $highlight-border solid $highlight-color; 
+    }
+  }
+  .highlight-vertical{
+    padding: 0px $highlight-border 0px $highlight-border;
+    &:hover{
+      border-left: $highlight-border solid $highlight-color;
+      border-right: $highlight-border solid $highlight-color; 
+    }
+  }
+}
+
+
+.non-accent{
+  @include highlight($primary-3,rgba(204,204,204,0))
+}

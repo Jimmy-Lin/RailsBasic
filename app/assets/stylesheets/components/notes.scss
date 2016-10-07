@@ -1,0 +1,12 @@
+.notes-container{
+  box-sizing: border-box;
+  position: fixed;
+  height: 100%;
+  float: left;
+  padding: 10px 0px 0px 10px;
+  .notes-notice{
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 5px;
+  }
+}

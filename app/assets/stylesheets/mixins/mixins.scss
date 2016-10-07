@@ -1,0 +1,41 @@
+@mixin transition($property,$delay) {
+  -webkit-transition: $property $transition-style $delay*1s;
+  -moz-transition: $property $transition-style $delay*1s;
+  -o-transition: $property $transition-style $delay*1s;
+  transition: $property $transition-style $delay*1s;
+}
+
+@mixin gradient($start, $finish){
+  background: -webkit-linear-gradient($start,$finish);
+  background: -o-linear-gradient($start,$finish);
+  background: -moz-linear-gradient($start,$finish);
+  background: linear-gradient($start,$finish);
+}
+
+@mixin rotate($degrees){
+  -ms-transform: rotate($degrees*1deg);
+  -webkit-transform: rotate($degrees*1deg);
+  -moz-transform: rotate($degrees*1deg);
+  transform: rotate($degrees*1deg);
+}
+@mixin transform($transformation){
+  -ms-transform: $transformation;
+  -webkit-transform: $transformation;
+  -moz-transform: $transformation;
+  transform: $transformation;
+}
+@mixin perspective($perspective){
+  -webkit-perspective: $perspective*1px;
+  -moz-transform: $perspective*1px;
+  perspective: $perspective*1px;
+}
+@mixin origin-x($origin){
+  -webkit-perspective-origin-x: $origin*1%;
+  -moz-perspective-origin-x: $origin*1%;
+  perspective-origin-x: $origin*1%;
+}
+@mixin transform-style($style){
+  -webkit-transform-style: $style;
+  -moz-transform-style: $style;
+  transform-style: $style;
+}

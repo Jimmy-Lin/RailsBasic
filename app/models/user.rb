@@ -7,17 +7,25 @@ class User < ApplicationRecord
 	before_create :create_activation_digest
 
 	has_many :microposts, dependent: :destroy
-
-	# This builds the foundation for has_many_through relationships
 	has_many :active_relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
 	has_many :passive_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
 	has_many :following, through: :active_relationships, source: :followed
 	has_many :followers, through: :passive_relationships, source: :follower
-	
 
-	validates(:name, presence: true, length: {maximum: 50})
-	validates(:email, presence: true, length: {maximum: 255}, format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false})
-	validates(:password, presence: true, length: {minimum: 6}, allow_nil: true)
+	has_many :memberships, dependent: :destroy
+	has_many :groups, through: :memberships
+	has_many :attendances, dependent: :destroy
+	has_many :folders
+	has_many :documents
+	has_many :links
+	has_many :messages
+	has_many :announcements
+	has_many :authored_groups, class_name: "Group", foreign_key: "user_id"
+	has_many :authored_events, class_name: "Event", foreign_key: "user_id"
+
+	validates :name, presence: true, length: {maximum: 50}
+	validates :email, presence: true, length: {maximum: 255}, format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false}
+	validates :password, presence: true, length: {minimum: 6}, allow_nil: true
 
 	has_secure_password
 

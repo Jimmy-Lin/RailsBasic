@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  picture: MyString
+  is_public: false
+  group: one
+  user: one
+
+two:
+  title: MyString
+  description: MyText
+  picture: MyString
+  is_public: false
+  group: two
+  user: two

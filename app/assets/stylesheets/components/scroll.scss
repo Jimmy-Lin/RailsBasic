@@ -1,0 +1,20 @@
+.scroll-container{
+  box-sizing: border-box;
+  .scroll-children{
+    box-sizing: border-box;
+    padding-left: 10px;
+    @include transition(opacity,0);
+    height: 0px;
+    visibility: hidden;
+    opacity: 0;
+    .scroll-child:not(:first-child)::before{
+      content: '\A';
+      white-space: pre;
+    }
+  }
+  .scroll-children:hover,.scroll-parent:hover + .scroll-children{
+    height: auto;
+    visibility: visible;
+    opacity: 1;
+  }
+}

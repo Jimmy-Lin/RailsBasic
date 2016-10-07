@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  picture: MyString
+  time: 2016-10-06 01:01:21
+  location: MyString
+  is_public: false
+  group: one
+  user: one
+
+two:
+  title: MyString
+  description: MyText
+  picture: MyString
+  time: 2016-10-06 01:01:21
+  location: MyString
+  is_public: false
+  group: two
+  user: two
