@@ -8,4 +8,14 @@ class Announcement < ApplicationRecord
   validates :creator, presence: true
   validates :group, presence: true
   validates_associated :creator, :group
+  validate :picture_size
+
+  mount_uploader :picture, PictureUploader
+
+  private
+	def picture_size
+	  if picture.size > 5.megabytes
+		  error.add(:picture, "should be less than 5MB")
+	  end
+	end
 end

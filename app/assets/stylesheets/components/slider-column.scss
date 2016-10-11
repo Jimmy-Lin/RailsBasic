@@ -9,11 +9,12 @@
   align-content: space-around;
   .slider-column{
     @include transition(width, 0);
+    box-sizing: border-box;
     position: relative;
     height: 100%;
-    box-sizing: border-box;
     flex: 1 1 1;
     .slider-label{
+      box-sizing: border-box;
       position: absolute;
       top: 10%;
       left: -10px;
@@ -21,11 +22,16 @@
       width: auto;
       @include rotate(270);
     }
+    .slider-label + .slider-body{
+      padding-left: 25px;
+    }
     .slider-body{
       @include transition(opacity,0);
+      box-sizing: border-box;
+      background:rgba(204,204,204,0.1);
       position: absolute;
       top: 0%;
-      left: 25px;
+      
       height: 100%;
       width: 100%;
       visibility: hidden;

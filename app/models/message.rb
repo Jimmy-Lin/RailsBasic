@@ -6,4 +6,13 @@ class Message < ApplicationRecord
   validates :creator, presence: true
   validates :conversation, presence: true
   validates_associated :creator, :conversation
+  validates :picture_size
+
+  mount_uploader :picture, PictureUploader
+
+  def picture_size
+      if picture.size > 5.megabytes
+        error.add(:picture, "should be less than 5MB")
+      end
+    end
 end

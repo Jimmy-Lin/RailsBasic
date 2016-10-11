@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
-  # routes for users/<user_id>/following and users<user_id>/followers
+  # routes for users/<user_id>/following and users/<user_id>/followers
   # maps to actions 'following' and 'followers'
   # aliased as following_user_path(user_id) and followers_user_path(user_id)
   resources :users do

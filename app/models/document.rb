@@ -6,4 +6,14 @@ class Document < ApplicationRecord
   validates :creator, presence: true
   validates :folder, presence: true
   validates_associated :creator, :folder
+  validates :document_size
+
+  mount_uploader :source, DocumentUploader
+
+  private
+	def document_size
+		if document.size > 25.megabytes
+			error.add(:picture, "should be less than 25MB")
+		end
+	end
 end
